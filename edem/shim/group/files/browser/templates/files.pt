@@ -1,0 +1,28 @@
+<div>
+  <tal:block condition="view/viewTopics">
+    <div id="latestFiles">
+      <img style="margin:0px 0.69em 0px 0px;padding:0px;"
+        src="/++resource++anim/wait.gif"/> 
+      Loading the latest files
+    </div>
+    <ul id="extended-file-tasks" class="inline-list">
+      <li><a tal:define="url string:/s/?t=0&amp;f=1&amp;g=${view/groupInfo/id}&amp;st=1"
+          tal:attributes="href url" href="#">More files&#8230;</a></li>
+      <li><a type="application/atom+xml" class="alternateATOM"
+          tal:define="url string:/s/search.atom?t=0&amp;f=1&amp;g=${view/groupInfo/id}"
+          tal:attributes="href url" href="#">Web feed</a></li>
+    </ul>
+  </tal:block>  
+  <tal:block condition="not:view/viewTopics">
+    <!--We must be looking at a private group-->
+    <p>
+      You must be a logged in member of 
+      <span class="group" tal:content="view/groupInfo/name">this group</span>
+      to view the files.
+      <a tal:attributes="href string:/login.html?came_from=${view/groupInfo/url}"
+        href="#"><strong>Login</strong> if you are already a 
+        member.</a>
+    </p>
+  </tal:block>  
+</div>
+

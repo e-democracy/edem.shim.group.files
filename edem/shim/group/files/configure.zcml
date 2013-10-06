@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:viewlet name="gs-group-messages-files-tab" 
+    for="gs.group.base.interfaces.IGSGroupMarker" 
+    layer="gs.skin.ogn.edem.interfaces.IEDemLayer" 
+    manager="gs.shim.group.home.interfaces.IGroupHomepageTasks" 
+    class="gs.group.type.announcement.tabs.DoNothing" 
+    permission="zope2.Public" 
+    weight="30" 
+    title="Files" />
+  <browser:viewlet name="gs-skin-ogn-edem-files-tab" 
+    manager="gs.shim.group.home.interfaces.IGroupHomepageTasks" 
+    layer="gs.skin.ogn.edem.interfaces.IEDemLayer" 
+    template="browser/templates/files.pt" 
+    class="gs.group.home.simpletab.PublicTab" 
+    permission="zope2.Public" 
+    weight="31" 
+    title="Photos/Files" />
+  <browser:viewlet name="gs-group-messages-files-script" 
+    manager="gs.group.home.interfaces.IGroupHomepageScripts" 
+    layer="gs.skin.ogn.edem.interfaces.IEDemLayer" 
+    template="browser/templates/filescript.pt" 
+    class="gs.group.home.simpletab.PublicTab" 
+    permission="zope2.Public" 
+    weight="30" 
+    title="Files" />
+</configure>

@@ -1,0 +1,20 @@
+<script type="text/javascript" id="gs-skin-ogn-edem-files-script">
+    jQuery.noConflict() 
+    jQuery(document).ready( function () {
+        var uri = null, bodyId = null, gId = null, e = /_.*$/, shown = false;
+        // HACK to get the group ID for the AJAX.
+        bodyId = jQuery('body').attr('id');
+        gId = String(e.exec(bodyId)).slice(1);0
+        
+        uri = "/s/search.ajax?g="+gId+"&amp;t=0&amp;f=1&amp;i=0&amp;l=6&amp;st=1";
+        function show_files (event, ui) {
+          var panel = null;
+          panel = jQuery(ui.panel);
+          if ((panel.attr('id') ===  'task-tab-2') && (!shown)) {
+            jQuery("#latestFiles").load(uri);
+            shown = true;
+          }
+        }
+        jQuery('#task-tabs').bind('tabsshow', show_files);
+    });
+</script>
